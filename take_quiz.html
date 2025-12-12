@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Take Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f5f7fa;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+            background: white;
+            padding: 25px 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        select, button {
+            padding: 10px 14px;
+            font-size: 16px;
+            border-radius: 6px;
+            border: 1px solid #aaa;
+            outline: none;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #0056d2;
+        }
+
+        .question-box {
+            background: #eef3ff;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 5px solid #4c8bff;
+        }
+
+        .options label {
+            display: block;
+            margin: 5px 0;
+            padding: 8px;
+            background: #fff;
+            border-radius: 6px;
+            border: 1px solid #d6d6d6;
+            cursor: pointer;
+        }
+
+        .options label:hover {
+            background: #f2f6ff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Take a Quiz</h2>
+
+    <select id="moduleSelect">
+        <option value="1">Module 1 — Python Basics</option>
+        <option value="2">Module 2 — Machine Learning</option>
+        <option value="3">Module 3 — DBMS</option>
+        <option value="4">Module 4 — Web Development</option>
+        <option value="5">Module 5 — Aptitude</option>
+    </select>
+
+    <button onclick="loadQuiz()">Start Quiz</button>
+
+    <div id="quizContainer"></div>
+
+    <button id="submitBtn" style="display:none;" onclick="submitQuiz()">Submit Quiz</button>
+
+</div>
+
+<script>
+let questions = [];
+let selectedOptions = [];
+
+function loadQuiz() {
+    let module_id = document.getElementById("moduleSelect").value;
+
+    fetch("/api/quizzes")
+        .then(res => res.json())
+        .then(data => {
+            questions = data[module_id].questions;
+            selectedOptions = new Array(questions.length).fill(null);
+
+            displayQuestions();
+        });
+}
+
+function displayQuestions() {
+    let container = document.getElementById("quizContainer");
+    container.innerHTML = "";
+
+    questions.forEach((q, index) => {
+        container.innerHTML += `
+            <div class="question-box">
+                <h3>Q${index + 1}. ${q.question}</h3>
+                <div class="options">
+                    ${q.options.map((op, i) => `
+                        <label>
+                            <input type="radio" name="q${index}" value="${i}"
+                                onchange="selectOption(${index}, ${i})">
+                            ${op}
+                        </label>
+                    `).join("")}
+                </div>
+            </div>
+        `;
+    });
+
+    document.getElementById("submitBtn").style.display = "block";
+}
+
+function selectOption(qIndex, optionIndex) {
+    selectedOptions[qIndex] = optionIndex;
+}
+
+function submitQuiz() {
+    let module_id = document.getElementById("moduleSelect").value;
+
+    if (selectedOptions.includes(null)) {
+        alert("Please answer all questions!");
+        return;
+    }
+
+    fetch("/api/submit", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            module_id: module_id,
+            answers: selectedOptions
+        })
+    })
+    .then(res => res.json())
+    .then(result => {
+        alert("Your Score: " + result.score);
+        window.location.href = "/dashboard.html";
+    });
+}
+</script>
+
+</body>
+</html>

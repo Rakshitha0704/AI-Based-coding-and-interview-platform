@@ -1,0 +1,149 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Dashboard</h2>
+            <a href="/logout" class="btn btn-danger">Logout</a>
+        </div>
+        <hr>
+        <h4>Welcome, <span id="username"></span>!</h4>
+        <h5>Your Quiz Progress:</h5>
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>Module ID</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody id="progressTable">
+                
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        async function loadProgress() {
+            const response = await fetch('/api/progress');
+            const data = await response.json();
+
+            if (data.error) {
+                alert(data.error);
+                window.location.href = "/login";
+                return;
+            }
+
+            document.getElementById('username').innerText = data.username;
+
+            const tableBody = document.getElementById('progressTable');
+            tableBody.innerHTML = "";
+
+            if (data.progress.length === 0) {
+                tableBody.innerHTML = "<tr><td colspan='2'>No progress yet.</td></tr>";
+            } else {
+                data.progress.forEach(p => {
+                    const row = `<tr>
+                                    <td>${p.module_id}</td>
+                                    <td>${p.score}</td>
+                                 </tr>`;
+                    tableBody.innerHTML += row;
+                });
+            }
+        }
+
+        // Load progress when page loads
+        window.onload = loadProgress;
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <style>
+        body { background: #f8f9fa; }
+        .card:hover { transform: scale(1.05); transition: transform 0.3s; }
+        .progress { height: 25px; }
+        .progress-bar { font-weight: bold; }
+        h2, h4 { color: #343a40; }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Dashboard</h2>
+            <a href="/logout" class="btn btn-danger">Logout</a>
+        </div>
+        <h4>Welcome, <span id="username"></span>!</h4>
+        <h5 class="mt-4">Your Quiz Progress:</h5>
+
+        <div id="progressCards" class="row mt-3"></div>
+    </div>
+
+    <script>
+        async function loadProgress() {
+            const response = await fetch('/api/progress');
+            const data = await response.json();
+
+            if (data.error) {
+                alert(data.error);
+                window.location.href = "/login";
+                return;
+            }
+
+            document.getElementById('username').innerText = data.username;
+
+            const cardsContainer = document.getElementById('progressCards');
+            cardsContainer.innerHTML = "";
+
+            const quizzesResponse = await fetch('/api/quizzes');
+            const quizzes = await quizzesResponse.json();
+
+            if (data.progress.length === 0) {
+                cardsContainer.innerHTML = "<p class='text-muted'>No progress yet. Take a quiz to see your results!</p>";
+            } else {
+                data.progress.forEach(p => {
+                    const moduleId = p.module_id.toString();
+                    const module = quizzes[moduleId];
+                    const moduleTitle = module && module.title ? module.title : `Module ${p.module_id}`;
+                    const maxScore = module ? module.questions.length : 5; 
+                    const percent = Math.round((p.score / maxScore) * 100);
+
+                    // Color-coded progress bar
+                    let colorClass = 'bg-success';
+                    if (percent < 50) colorClass = 'bg-danger';
+                    else if (percent < 70) colorClass = 'bg-warning';
+
+                    const card = document.createElement('div');
+                    card.className = "col-md-4 mb-4";
+                    card.innerHTML = `
+                        <div class="card p-3 shadow-sm">
+                            <h5>${moduleTitle}</h5>
+                            <p>Score: ${p.score} / ${maxScore}</p>
+                            <div class="progress">
+                                <div class="progress-bar ${colorClass}" role="progressbar" 
+                                     style="width: ${percent}%" 
+                                     aria-valuenow="${percent}" aria-valuemin="0" aria-valuemax="100">
+                                     ${percent}%
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    cardsContainer.appendChild(card);
+                });
+            }
+        }
+
+        window.onload = loadProgress;
+    </script>
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="learn-ai.jpg">
+  <title>AI-ML Concepts - Prepify AI</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Prism.js for code highlighting -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet"/>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      background-color: #f5f6ff;
+      color: #333;
+    }
+    h5{
+        color:rgb(120, 135, 215);
+    }
+
+    /* Navbar */
+    .navbar-brand {
+      font-weight: 700;
+      color: rgb(136, 156, 237) !important;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      padding-top: 2rem;
+      background-color: rgb(136, 156, 237);
+      color: white;
+    }
+    .sidebar a {
+      color: white;
+      display: block;
+      padding: 0.6rem 1rem;
+      text-decoration: none;
+      border-radius: 0.25rem;
+      margin-bottom: 0.3rem;
+      transition: 0.2s;
+    }
+    .sidebar a:hover, .sidebar a.active {
+      background-color: rgba(0,0,0,0.2);
+      color: white;
+    }
+
+    /* Card-style sections */
+    section {
+      background-color: white;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 0.6rem;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+    }
+
+    section h2 {
+      color: rgb(136, 156, 237);
+      margin-bottom: 1rem;
+    }
+
+    pre {
+      background-color: #2d2d2d;
+      color: #f8f8f2;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      overflow-x: auto;
+    }
+
+    /* Buttons */
+    .btn-secondary {
+      background-color: rgb(136, 156, 237);
+      border: none;
+    }
+    .btn-secondary:hover {
+      background-color: rgb(120, 135, 215);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .sidebar {
+        height: auto;
+        position: relative;
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #06273e;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">Prepify AI</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<div class="container-fluid">
+  <div class="row">
+
+    <!-- Sidebar -->
+    <div class="col-md-3 sidebar">
+      <h4 class="px-3">Topics</h4>
+      <a href="#intro" class="active">Introduction to AI&ML</a>
+      <a href="#supervised">Supervised vs Unsupervised</a>
+      <a href="#rl">Reinforcement Learning</a>
+      <a href="#nn">Neural Networks</a>      
+      <a href="#dl">Deep Learning</a>
+      <a href="#ml-algorithms">ML Algorithms</a>
+    </div>
+
+    <!-- Notes Content -->
+    <div class="col-md-9 py-4">
+
+      <!-- Introduction -->
+      <section id="intro">
+        <h2>Introduction to AI</h2>
+        <h4>What is Artificial Intelligence (AI)?</h4>
+        <p>Artificial Intelligence (AI) is the science and engineering of creating intelligent machines that can perform tasks that typically require human intelligence. These tasks include understanding language, recognizing patterns, solving problems, and making decisions. AI is all around us—from virtual assistants like Siri and Alexa, to self-driving cars, to recommendation systems on Netflix and Amazon.</p>
+        <br>
+         <h4>What is Machine Learning (ML)?</h4>
+        <p>Machine Learning (ML) is a subset of AI that focuses on teaching machines to learn from data and improve their performance over time without being explicitly programmed. Instead of following rigid rules, ML systems analyze patterns in data and make predictions or decisions based on what they learn.</p>
+        <p><strong>Applications:</strong> Self-driving cars, speech recognition, recommendation systems, medical diagnosis.</p>
+      </section>
+
+      <!-- Supervised vs Unsupervised -->
+      <section id="supervised">
+        <h2>Supervised vs Unsupervised Learning</h2>
+        <h4 style="color:rgb(136, 156, 237);">What is Supervised Learning?</h4>
+        <p>Supervised Learning is a type of Machine Learning where the model <strong>learns from labeled data</strong>. Labeled data means each example comes with the <strong>correct answer</strong>. The model learns a mapping between input data and output labels so it can predict the correct output for new data.</p>
+        <p><em>Analogy:</em> It’s like a student learning with a teacher. The teacher provides questions (inputs) and correct answers (labels). Over time, the student learns to answer new questions correctly.</p>
+
+        <h5>How It Works (Step by Step)</h5>
+        <ol>
+        <li><strong>Collect Data:</strong> Gather examples with inputs and corresponding outputs. Example: Dataset of houses with features (size, location) and prices (labels).</li>
+        <li><strong>Split Data:</strong> Divide data into training (to teach the model) and testing (to check performance).</li>
+        <li><strong>Train the Model:</strong> Feed the training data to an algorithm. The model learns the relationship between inputs and outputs.</li>
+        <li><strong>Make Predictions:</strong> Apply the trained model to new data to predict outputs.</li>
+        <li><strong>Evaluate Performance:</strong> Measure accuracy or error using metrics like Mean Squared Error (regression) or Accuracy/F1-score (classification).</li>
+        </ol>
+
+        <h5>Types of Supervised Learning</h5>
+        <ul>
+        <li><strong>Regression:</strong> Predicts a <em>continuous value</em>. Example: Predicting house prices, temperature, or salary.</li>
+        <li><strong>Classification:</strong> Predicts a <em>discrete label</em> or category. Example: Email spam detection (spam or not spam), predicting if a tumor is malignant or benign.</li>
+        </ul>
+
+        <h5>Popular Supervised Learning Algorithms</h5>
+        <ul>
+        <li>Linear Regression – predicts continuous values</li>
+        <li>Logistic Regression – predicts probabilities for classification</li>
+        <li>Decision Trees / Random Forest – works for both regression & classification</li>
+        <li>Support Vector Machines (SVM) – separates data into classes</li>
+        <li>K-Nearest Neighbors (KNN) – predicts based on closest examples</li>
+        </ul>
+
+        <h5>Key Points to Remember</h5>
+        <ul>
+        <li>Requires labeled data</li>
+        <li>Learns patterns from input-output pairs</li>
+        <li>Useful for prediction and classification tasks</li>
+        <li>Model performance is measured on unseen test data</li>
+        </ul>
+        <p>The model is trained on labeled data, meaning the input comes with the correct output.</p>
+        <pre><code class="language-python">
+# Linear Regression Example
+from sklearn.linear_model import LinearRegression
+
+X = [[1], [2], [3], [4]]
+y = [2, 4, 6, 8]
+model = LinearRegression()
+model.fit(X, y)
+print(model.predict([[5]]))  # Output: 10
+        </code></pre>
+
+        
+        <h4 style="color:rgb(136, 156, 237);">What is Unsupervised Learning?</h4>
+        <p>Unsupervised Learning is a type of Machine Learning where the model learns from <strong>unlabeled data</strong>. Unlike supervised learning, there are no correct answers provided. The model tries to find patterns, relationships, or structure in the data on its own.</p>
+        <p><em>Analogy:</em> It’s like exploring a new city without a map. You try to group similar places together or find patterns in how things are arranged.</p>
+
+        <h5>How It Works (Step by Step)</h5>
+        <ol>
+        <li><strong>Collect Data:</strong> Gather examples without labels. Example: Customer data with attributes like age, spending, and location.</li>
+        <li><strong>Choose an Algorithm:</strong> Select an unsupervised algorithm such as clustering or dimensionality reduction.</li>
+        <li><strong>Train the Model:</strong> Feed the data to the algorithm. The model identifies patterns or groups within the data.</li>
+        <li><strong>Analyze Results:</strong> Interpret the clusters, associations, or patterns discovered by the model.</li>
+        </ol>
+
+        <h5>Types of Unsupervised Learning</h5>
+        <ul>
+        <li><strong>Clustering:</strong> Groups data points based on similarity. Example: Customer segmentation, grouping articles by topic.</li>
+        <li><strong>Dimensionality Reduction:</strong> Reduces the number of features while keeping important information. Example: Simplifying data for visualization or speeding up computation.</li>
+        </ul>
+
+        <h5>Popular Unsupervised Learning Algorithms</h5>
+        <ul>
+        <li>K-Means Clustering – groups data into clusters based on similarity</li>
+        <li>Hierarchical Clustering – creates a hierarchy of clusters</li>
+        <li>DBSCAN – density-based clustering algorithm</li>
+        <li>PCA (Principal Component Analysis) – reduces dimensions while preserving variance</li>
+        <li>t-SNE – visualizes high-dimensional data in 2D or 3D</li>
+        </ul>
+
+    <h5>Key Points to Remember</h5>
+    <ul>
+        <li>Works with unlabeled data</li>
+        <li>Finds hidden patterns or structures in the data</li>
+        <li>Useful for clustering, association, and dimensionality reduction</li>
+        <li>Helps in data exploration and understanding relationships</li>
+    </ul>
+        <pre><code class="language-python">
+# K-Means Clustering Example
+from sklearn.cluster import KMeans
+X = [[1,2], [1,4], [1,0], [10,2], [10,4], [10,0]]
+kmeans = KMeans(n_clusters=2)
+kmeans.fit(X)
+print(kmeans.labels_)
+        </code></pre>
+      </section>
+
+      <!--Reinforcement Learning-->
+      <section id="rl">
+    <h2>Reinforcement Learning (RL) </h2>
+
+    <h2>What is Reinforcement Learning?</h2>
+    <p>Reinforcement Learning is a type of Machine Learning where an agent learns to make decisions by interacting with an environment. Instead of being given labeled data, the agent receives <strong>feedback in the form of rewards or penalties</strong> based on its actions.</p>
+    <p><em>Analogy:</em> Think of teaching a dog new tricks. The dog tries actions, and you give it a treat (reward) when it performs correctly or ignore/penalize it for wrong actions. Over time, the dog learns the best actions to maximize treats.</p>
+
+    <h5>How It Works (Step by Step)</h5>
+    <ol>
+        <li><strong>Agent:</strong> The learner or decision-maker (e.g., a robot, AI software).</li>
+        <li><strong>Environment:</strong> Everything the agent interacts with (e.g., a game board, maze, or physical world).</li>
+        <li><strong>Actions:</strong> Choices the agent can make at each step.</li>
+        <li><strong>Rewards:</strong> Feedback the agent receives after taking an action. Positive rewards encourage good behavior; negative rewards discourage bad behavior.</li>
+        <li><strong>Policy:</strong> The strategy the agent uses to decide actions based on the current state.</li>
+        <li><strong>Learning:</strong> The agent repeats actions, explores the environment, and adjusts its policy to maximize cumulative rewards.</li>
+    </ol>
+
+    <h5>Key Concepts in Reinforcement Learning</h5>
+    <ul>
+        <li><strong>Exploration vs Exploitation:</strong> Exploration means trying new actions to discover better rewards, while exploitation means using known actions that give good rewards.</li>
+        <li><strong>State:</strong> Current situation of the agent in the environment.</li>
+        <li><strong>Action:</strong> Any move or decision the agent can take in a state.</li>
+        <li><strong>Reward:</strong> Immediate feedback received after an action.</li>
+        <li><strong>Episode:</strong> A complete sequence of actions from start to finish in the environment.</li>
+    </ul>
+
+    <h5>Applications of Reinforcement Learning</h5>
+    <ul>
+        <li>Training AI to play games (Chess, Go, Atari games)</li>
+        <li>Robotics – teaching robots to walk or pick objects</li>
+        <li>Self-driving cars – learning to navigate safely</li>
+        <li>Resource management – optimizing energy, traffic, or inventory systems</li>
+        <li>Recommendation systems – learning user preferences over time</li>
+    </ul>
+
+    <h5>Popular Reinforcement Learning Algorithms</h5>
+    <ul>
+        <li>Q-Learning – learns the value of actions in each state</li>
+        <li>Deep Q-Networks (DQN) – uses neural networks for complex environments</li>
+        <li>Policy Gradient Methods – directly optimizes the policy</li>
+        <li>Actor-Critic Methods – combines value and policy optimization</li>
+    </ul>
+
+    <h5>Key Points to Remember</h5>
+    <ul>
+        <li>Works with feedback (rewards/penalties) rather than labeled data</li>
+        <li>Focuses on learning optimal actions to maximize cumulative rewards</li>
+        <li>Involves continuous interaction with the environment</li>
+        <li>Widely used in gaming, robotics, autonomous systems, and recommendation engines</li>
+    </ul>
+      </section>
+
+      <!-- Neural Networks -->
+      <section id="nn">
+        <h2>Neural Networks</h2>
+        <p>Neural networks are a series of algorithms that recognize relationships in a dataset through layers that mimic the human brain.</p>
+        <pre><code class="language-python">
+# Simple ANN in Keras
+from keras.models import Sequential
+from keras.layers import Dense
+
+model = Sequential()
+model.add(Dense(8, input_dim=4, activation='relu'))
+model.add(Dense(3, activation='softmax'))
+model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+        </code></pre>
+      </section>
+
+      <!-- Deep Learning -->
+      <section id="dl">
+        <h2>Deep Learning</h2>
+        <p>Deep Learning is a subset of ML that uses multi-layered neural networks to model complex patterns. Useful in image and speech recognition.</p>
+      </section>
+
+      <!-- ML Algorithms -->
+      <section id="ml-algorithms">
+        <h2>Popular Machine Learning Algorithms</h2>
+        <ul>
+          <li>Linear Regression</li>
+          <li>Logistic Regression</li>
+          <li>Decision Trees</li>
+          <li>Random Forest</li>
+          <li>Support Vector Machines</li>
+          <li>K-Nearest Neighbors</li>
+        </ul>
+      </section>
+
+      <a href="index.html" class="btn btn-secondary mt-4">⬅ Back to Home</a>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS + Prism.js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+
+<script>
+  // Highlight active topic in sidebar on scroll
+  const sections = document.querySelectorAll('section');
+  const links = document.querySelectorAll('.sidebar a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 150;
+      if (pageYOffset >= sectionTop) current = section.getAttribute('id');
+    });
+    links.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interview-Prep</title>
+  <link rel="icon" href="logo1.jpg">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #2b2e4a, #e84545);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: white;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 50px 40px;
+      border-radius: 25px;
+      backdrop-filter: blur(15px);
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 25px;
+      font-weight: 600;
+    }
+
+    .mic-btn {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+      margin: 0 auto;
+    }
+
+    .mic-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .mic-icon {
+      width: 40px;
+      height: 40px;
+      transition: 0.4s;
+    }
+
+    .pulse {
+      animation: pulse 1.3s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+      }
+
+      70% {
+        transform: scale(1.15);
+        box-shadow: 0 0 25px 20px rgba(255, 255, 255, 0);
+      }
+
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>Interview Prep</h1>
+
+    <div class="mic-btn" id="micButton">
+      <img src="https://img.icons8.com/ios-filled/100/000000/microphone.png" class="mic-icon" id="micIcon" />
+    </div>
+
+     
+    <div id="vapi-launcher" style="margin-top:30px;"></div>
+  </div>
+
+  
+  <script>
+    (function (d, t) {
+      var g = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+      g.src = "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
+      g.defer = true;
+      g.async = true;
+      s.parentNode.insertBefore(g, s);
+
+      g.onload = function () {
+        console.log("Vapi Loaded Correctly!");
+
+        // 🟢 ENTER YOUR VAPI PUBLIC KEY + ASSISTANT ID HERE
+        window.vapiSDK.run({
+          apiKey: "0cb07d26-acf9-4185-9353-ffb47e53d91a", // put your public key
+          assistant: "697a0659-55b7-4bd0-8480-1b5690277a68", // put assistant ID
+          config: {
+            position: "bottom-right",
+          }
+        });
+      };
+    })(document, "script");
+  </script>
+
+  <script>
+    const micBtn = document.getElementById("micButton");
+    const micIcon = document.getElementById("micIcon");
+
+    micBtn.addEventListener("click", () => {
+  micIcon.classList.add("pulse");
+
+  // start voice input
+  if (window.vapiSDK) {
+    window.vapiSDK.start();  // triggers Vapi to listen
+  }
+});
+
+  </script>
+
+</body>
+
+</html> 
+
+

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prepify AI</title>
+    <link rel="icon" href="logo1.jpg">
+    <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/python/python.min.js"></script>
+
+    <link rel="stylesheet" href="aiml.html">
+</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Coding Platform</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Top Navbar -->
+<nav class="navbar navbar-expand-lg" style="background-color:rgb(136, 156, 237);" data-bs-theme="dark"> 
+  <div class="container-fluid">
+    <img src="logo2.jpg" style="height: 30px;">
+    <a href="#" class="navbar-brand">Prepify AI</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#topNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="topNavbar">
+      <div class="navbar-nav">
+        <a class="nav-link" href="dashboard.html">Dashboard</a>
+        <a class="nav-link" href="coding.html">Coding Practice</a>
+        <a class="nav-link" href="vapi.html">AI Interview</a>
+      </div>
+      <form class="d-flex ms-auto">
+       
+      </form>
+        <!-- ✅ LOGOUT BUTTON HERE -->
+      <a href="/logout" class="btn btn-danger ms-3">Logout</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="container mt-5 pt-5">
+  <div class="row align-items-center">
+    <!-- Left: Text -->
+    <div class="col-md-8">
+      <h2>AI-Powered Interview & Coding Platform</h2>
+      <h4>Learn, Practice, Get Interview-Ready</h4>
+      <a class="btn text-white mt-3" style="background-color: #06273e;" href="vapi.html" role="button">
+        Get Started
+      </a>
+    </div>
+
+    <!-- Right: Image -->
+    <div class="col-md-4">
+      <img src="photo.jpg" alt="AI Illustration" class="img-fluid rounded">
+    </div>
+  </div>
+
+  <!-- Cards -->
+   <!--ROW1-->
+   <style>
+  .rectangle-card {
+  width: 18rem;   /* keep fixed width */
+  /* remove fixed height! */
+}
+
+.rectangle-card img {
+  height: 150px;      /* choose a good uniform height */
+  width: 100%;        /* stretch full card width */
+  object-fit: cover;  /* crop nicely */
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+</style>
+<div class="row mt-5">
+  <!-- Card 1 -->
+  <div class="col-md-4">
+    <div class="card rectangle-card">
+      <img src="chatbot1.png" class="card-img-top" alt="Chatbot">
+      <div class="card-body text-center">
+        <h5 class="card-title">AI Chatbot</h5>
+        <!-- <a href="#" onclick="window.open('http://localhost:8501','Chatbot','width=400,height=600')" class="btn btn-primary">Chat Now</a> -->
+        <a href="#" onclick="window.open('https://chatbot-1-roth.onrender.com/')" class="btn btn-primary">Chat Now</a>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="col-md-4">
+    <div class="card rectangle-card">
+      <img src="dash1.png" class="card-img-top" alt="Dashboard">
+      <div class="card-body text-center">
+        <h5 class="card-title">Dashboard</h5>
+        <a href="dashboard.html" class="btn btn-primary">Check Progress</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="col-md-4">
+    <div class="card rectangle-card">
+      <img src="learn-ai.jpg" class="card-img-top" alt="Learn AI">
+      <div class="card-body text-center">
+        <h5 class="card-title">Learn AI-ML Concepts</h5>
+        <a href="aiml.html" class="btn btn-primary">Start Learning</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ROW 2 -->
+<div class="row mt-5">
+
+  <!-- Card 4 -->
+  <div class="col-md-4">
+    <div class="card rectangle-card">
+      <img src="code1.png" class="card-img-top" alt="Coding">
+      <div class="card-body text-center">
+        <h5 class="card-title">Interview Coding Practice</h5>
+        <!-- <a href="coding.html" class="btn btn-primary">Practice Coding</a> -->
+        <a href="#" onclick="window.open('https://coding-platform-b5nq.onrender.com')" class="btn btn-primary">Code Now</a>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 5 -->
+  <div class="col-md-4">
+    <div class="card rectangle-card">
+      <img src="interview1.png" class="card-img-top" alt="Interview">
+      <div class="card-body text-center">
+        <h5 class="card-title">AI based interview analyzer</h5>
+        <a href="vapi.html" class="btn btn-primary">Start Interview</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 6 (Take a Quiz) -->
+  <div class="col-md-4">
+    <div class="card rectangle-card">
+      <img src="quiz.png" class="card-img-top" alt="Quiz">
+      <div class="card-body text-center">
+        <h5 class="card-title">Take a Quiz</h5>
+        <a href="take_quiz.html" class="btn btn-primary">Start Quiz</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+ 
+ 
+<!-- Bottom Navbar -->
+<nav class="navbar navbar-expand-lg" style="background-color: #06273e;" data-bs-theme="dark"> 
+  <div class="container-fluid px-0">
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#bottomNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="bottomNavbar">
+      <div class="navbar-nav">
+        <a class="nav-link" href="#">About</a>
+        <a class="nav-link" href="#">Blog</a>
+        <a class="nav-link" href="#">Contact</a>
+        <a class="nav-link" href="#">Terms</a>
+        <a class="nav-link" href="#">Privacy</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

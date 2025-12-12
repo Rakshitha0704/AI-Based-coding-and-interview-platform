@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ML Interview Platform</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        input[type="text"] {
+            width: 400px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        #response {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <h2>ML Interview</h2>
+
+    <div>
+        <input type="text" id="question" placeholder="Type your answer here...">
+        <button onclick="askAI()">Submit</button>
+    </div>
+
+    <div id="response"></div>
+
+    <script>
+        async function askAI() {
+            const questionInput = document.getElementById("question");
+            const question = questionInput.value.trim();
+
+            if (!question) return alert("Please type an answer!");
+
+            // Send candidate input to backend /ask route
+            const res = await fetch("/ask", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({question})
+            });
+
+            const data = await res.json();
+            document.getElementById("response").innerText = data.answer;
+
+            // Clear input after sending
+            questionInput.value = "";
+        }
+    </script>
+</body>
+</html>

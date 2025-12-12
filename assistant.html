@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vapi Voice Assistant Integration with Gemini</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+      background: #f0f0f0;
+      color: #333;
+      text-align: center;
+    }
+    .container {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      max-width: 400px;
+      margin: 0 auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    button {
+      margin: 0.5rem;
+      padding: 0.7rem 1.3rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #log {
+      margin-top: 1rem;
+      text-align: left;
+      height: 120px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      background: #fafafa;
+      font-family: monospace;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Vapi Voice Assistant</h1>
+    <button id="startCall">Start Call</button>
+    <button id="sendMessage">Send Message</button>
+    <button id="stopCall">Stop Call</button>
+    <button id="muteMic">Toggle Mute</button>
+    <button id="sayGoodbye">Say Goodbye</button>
+    <div id="log"></div>
+  </div>
+
+  <script type="module">
+    import Vapi from 'https://cdn.jsdelivr.net/npm/@vapi-ai/web@latest/dist/index.min.js';
+
+    // Initialize Vapi with your public key
+    const vapi = new Vapi('0cb07d26-acf9-4185-9353-ffb47e53d91a');
+
+    const logEl = document.getElementById('log');
+    function log(message) {
+      console.log(message);
+      logEl.textContent += message + '\n';
+      logEl.scrollTop = logEl.scrollHeight;
+    }
+
+    // Event listeners for Vapi events
+    vapi.on('speech-start', () => log('Speech has started'));
+    vapi.on('speech-end', () => log('Speech has ended'));
+    vapi.on('call-start', () => log('Call has started'));
+    vapi.on('call-end', () => log('Call has stopped'));
+    vapi.on('volume-level', volume => log(`Assistant volume level: ${volume}`));
+    vapi.on('message', message => log(`Message: ${JSON.stringify(message)}`));
+    vapi.on('error', e => log(`Error: ${e.message || e.toString()}`));
+
+    // Start a new assistant call using Gemini model and API key
+    document.getElementById('startCall').onclick = () => {
+      vapi.start({
+        model: {
+          provider: "gemini",
+          model: "gemini-1",
+          apiKey: "AIzaSyBt9zCM7V_YwCimAFdEEAqy7iChf3NpRzU",
+          messages: [
+            {
+              role: "system",
+              content: "You are an assistant.",
+            },
+          ],
+        },
+        voice: {
+          provider: "11labs",
+          voiceId: "burt",
+        },
+      });
+      log('Starting call...');
+    };
+
+    // Send a system message to the assistant
+    document.getElementById('sendMessage').onclick = () => {
+      vapi.send({
+        type: 'add-message',
+        message: {
+          role: 'system',
+          content: 'The user has pressed the button, say peanuts',
+        }
+      });
+      log('Sent message to assistant');
+    };
+
+    // Stop the assistant call
+    document.getElementById('stopCall').onclick = () => {
+      vapi.stop();
+      log('Call stopped');
+    };
+
+    // Toggle mute/unmute microphone
+    document.getElementById('muteMic').onclick = () => {
+      const currentlyMuted = vapi.isMuted();
+      vapi.setMuted(!currentlyMuted);
+      log(currentlyMuted ? 'Microphone unmuted' : 'Microphone muted');
+    };
+
+    // Say goodbye and end call gracefully
+    document.getElementById('sayGoodbye').onclick = () => {
+      vapi.say("Our time's up, goodbye!", true);
+      log('Saying goodbye and ending call...');
+    };
+  </script>
+
+</body>
+</html>

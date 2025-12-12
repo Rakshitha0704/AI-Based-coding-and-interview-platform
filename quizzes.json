@@ -1,0 +1,281 @@
+{
+  "1": {
+    "module_name": "Python Basics",
+    "questions": [
+      {
+        "question": "What is the correct file extension for Python?",
+        "options": [".pt", ".py", ".pyt", ".pn"],
+        "answer_index": 1
+      },
+      {
+        "question": "Which keyword is used to define a function in Python?",
+        "options": ["function", "def", "define", "fun"],
+        "answer_index": 1
+      },
+      {
+        "question": "What is the output of: print(type(10))?",
+        "options": ["<class 'str'>", "<class 'int'>", "<class 'float'>", "<class 'num'>"],
+        "answer_index": 1
+      },
+      {
+        "question": "Which data type is mutable?",
+        "options": ["tuple", "list", "string", "int"],
+        "answer_index": 1
+      },
+      {
+        "question": "Which of the following is a Python loop?",
+        "options": ["repeat", "foreach", "for", "loop"],
+        "answer_index": 2
+      },
+      {
+        "question": "Which operator is used for exponent?",
+        "options": ["^", "**", "^^", "exp"],
+        "answer_index": 1
+      },
+      {
+        "question": "Which is not a Python data type?",
+        "options": ["tuple", "set", "integer", "character"],
+        "answer_index": 3
+      },
+      {
+        "question": "What is the output of len('hello')?",
+        "options": ["4", "5", "6", "Error"],
+        "answer_index": 1
+      },
+      {
+        "question": "Which statement is used to handle errors?",
+        "options": ["catch", "handle", "except", "error"],
+        "answer_index": 2
+      },
+      {
+        "question": "Which of the following converts string to integer?",
+        "options": ["int()", "str()", "float()", "num()"],
+        "answer_index": 0
+      }
+    ]
+  },
+
+  "2": {
+    "module_name": "Machine Learning Basics",
+    "questions": [
+      {
+        "question": "ML stands for?",
+        "options": ["Machine Language", "Machine Learning", "Machine Logic", "Micro Learning"],
+        "answer_index": 1
+      },
+      {
+        "question": "Which is a supervised learning algorithm?",
+        "options": ["K-Means", "Linear Regression", "PCA", "Clustering"],
+        "answer_index": 1
+      },
+      {
+        "question": "Which library is used for ML in Python?",
+        "options": ["NumPy", "TensorFlow", "Pandas", "All of these"],
+        "answer_index": 3
+      },
+      {
+        "question": "Which of these is a classification algorithm?",
+        "options": ["KNN", "PCA", "DBSCAN", "SVD"],
+        "answer_index": 0
+      },
+      {
+        "question": "Which is a performance metric?",
+        "options": ["Accuracy", "Loops", "Indentation", "Classes"],
+        "answer_index": 0
+      },
+      {
+        "question": "Which of these detects overfitting?",
+        "options": ["Low loss", "High accuracy", "Validation score drop", "None"],
+        "answer_index": 2
+      },
+      {
+        "question": "Which is used for dimensionality reduction?",
+        "options": ["Regression", "Clustering", "PCA", "Cross-validation"],
+        "answer_index": 2
+      },
+      {
+        "question": "Deep learning needs?",
+        "options": ["Large data", "Less data", "No data", "Manual weights"],
+        "answer_index": 0
+      },
+      {
+        "question": "Which activation function is widely used?",
+        "options": ["Step", "ReLU", "Binary", "Ramp"],
+        "answer_index": 1
+      },
+      {
+        "question": "Loss function measures?",
+        "options": ["Time", "Error", "Speed", "Memory"],
+        "answer_index": 1
+      }
+    ]
+  },
+
+  "3": {
+    "module_name": "DBMS Essentials",
+    "questions": [
+      {
+        "question": "DBMS stands for?",
+        "options": ["Database Management System", "Data Base Maintain System", "Data Basic Model System", "None"],
+        "answer_index": 0
+      },
+      {
+        "question": "Which is a primary key property?",
+        "options": ["Nullable", "Unique", "Duplicate allowed", "None"],
+        "answer_index": 1
+      },
+      {
+        "question": "RDBMS stores data in?",
+        "options": ["Tables", "Arrays", "Graphs", "Stacks"],
+        "answer_index": 0
+      },
+      {
+        "question": "SQL stands for?",
+        "options": ["Simple Query Language", "Structured Query Language", "Sequential Query Language", "Server Query Language"],
+        "answer_index": 1
+      },
+      {
+        "question": "Which command is used to extract data?",
+        "options": ["GET", "SELECT", "IMPORT", "FETCH"],
+        "answer_index": 1
+      },
+      {
+        "question": "Which is NOT a SQL clause?",
+        "options": ["WHERE", "ORDER BY", "GROUP BY", "RANDOM"],
+        "answer_index": 3
+      },
+      {
+        "question": "Foreign key creates?",
+        "options": ["Unique values", "Relationship", "Temporary table", "Backup"],
+        "answer_index": 1
+      },
+      {
+        "question": "DELETE removes?",
+        "options": ["Table", "Rows", "Columns", "Database"],
+        "answer_index": 1
+      },
+      {
+        "question": "Which normal form removes duplicate columns?",
+        "options": ["1NF", "2NF", "3NF", "BCNF"],
+        "answer_index": 0
+      },
+      {
+        "question": "ACID property ensures?",
+        "options": ["Speed", "Security", "Consistency", "User access"],
+        "answer_index": 2
+      }
+    ]
+  },
+
+  "4": {
+    "module_name": "Web Development",
+    "questions": [
+      {
+        "question": "HTML stands for?",
+        "options": ["Hyper Trainer Marking Language", "Hyper Text Markup Language", "High Text Machine Language", "Hyper Tool Multi Language"],
+        "answer_index": 1
+      },
+      {
+        "question": "CSS is used for?",
+        "options": ["Structure", "Design", "Database", "Logic"],
+        "answer_index": 1
+      },
+      {
+        "question": "JavaScript runs in?",
+        "options": ["Browser", "Compiler", "Database", "Server only"],
+        "answer_index": 0
+      },
+      {
+        "question": "Which is a JavaScript framework?",
+        "options": ["Flask", "React", "Laravel", "Bootstrap"],
+        "answer_index": 1
+      },
+      {
+        "question": "Which tag is used for images?",
+        "options": ["<image>", "<img>", "<src>", "<photo>"],
+        "answer_index": 1
+      },
+      {
+        "question": "Which is the correct CSS syntax?",
+        "options": ["color = red;", "color: red;", "red : color;", "set(color, red)"],
+        "answer_index": 1
+      },
+      {
+        "question": "Backend language?",
+        "options": ["HTML", "CSS", "JavaScript", "Python"],
+        "answer_index": 3
+      },
+      {
+        "question": "Which HTTP method is used for submitting data?",
+        "options": ["GET", "POST", "PUT", "RENDER"],
+        "answer_index": 1
+      },
+      {
+        "question": "JSON stands for?",
+        "options": ["JavaScript Object Notation", "Java Source Object Network", "Joint Syntax Online", "None"],
+        "answer_index": 0
+      },
+      {
+        "question": "API stands for?",
+        "options": ["Application Programming Interface", "Automatic Program Input", "Active Page Interaction", "Advanced Python Integration"],
+        "answer_index": 0
+      }
+    ]
+  },
+
+  "5": {
+    "module_name": "Aptitude & Reasoning",
+    "questions": [
+      {
+        "question": "What is 25% of 200?",
+        "options": ["25", "50", "75", "100"],
+        "answer_index": 1
+      },
+      {
+        "question": "Which number comes next? 2, 4, 8, 16, __",
+        "options": ["18", "24", "32", "20"],
+        "answer_index": 2
+      },
+      {
+        "question": "If A=1, B=2, C=3, then Z=?",
+        "options": ["24", "25", "26", "27"],
+        "answer_index": 2
+      },
+      {
+        "question": "What is the square root of 144?",
+        "options": ["10", "11", "12", "14"],
+        "answer_index": 2
+      },
+      {
+        "question": "Which is the odd one out?",
+        "options": ["Dog", "Cat", "Lion", "Car"],
+        "answer_index": 3
+      },
+      {
+        "question": "What is 15 × 6?",
+        "options": ["60", "75", "90", "105"],
+        "answer_index": 1
+      },
+      {
+        "question": "A polygon with 5 sides is called?",
+        "options": ["Triangle", "Hexagon", "Pentagon", "Heptagon"],
+        "answer_index": 2
+      },
+      {
+        "question": "Simplify: 6 + 4 × 2",
+        "options": ["20", "14", "16", "18"],
+        "answer_index": 1
+      },
+      {
+        "question": "Which direction is opposite East?",
+        "options": ["North", "South", "West", "South-East"],
+        "answer_index": 2
+      },
+      {
+        "question": "If 1 hr = 60 min, then 3 hrs = ?",
+        "options": ["90", "120", "150", "180"],
+        "answer_index": 3
+      }
+    ]
+  }
+}
